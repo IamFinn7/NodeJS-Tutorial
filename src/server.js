@@ -1,24 +1,28 @@
 require("dotenv").config();
 const express = require("express");
-const path = require("path");
+// const path = require("path");
 const configViewEngine = require("./config/viewEngine");
+const webRoutes = require("./routes/web");
+const connection = require("./config/database");
+
+//----------------------------CONNECT DATABASE----------------------------
+// A simple SELECT query
+connection.query("SELECT * FROM Users u", function (err, results, fields) {
+  console.log(results); // results contains rows returned by server
+});
+//-------------------------------------------------------------------------
 
 const app = express();
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 3333; //if the port fails, use another one
 const hostname = process.env.HOST_NAME;
 
 //config template engine
 configViewEngine(app);
 
 //khai báo route
-app.get("/", (req, res) => {
-  res.send("Hello World! and nodemon");
-});
+app.use("/", webRoutes);
 
-app.get("/finn", (req, res) => {
-  // res.send('Check check!')
-  res.render("sample.ejs");
-});
+//test connection
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`);
