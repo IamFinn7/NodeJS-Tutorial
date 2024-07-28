@@ -1,9 +1,12 @@
 const express = require("express");
-const { getHomePage, finn } = require("../controllers/homeController");
+const {
+  getHomePage,
+  postCreateUser,
+} = require("../controllers/homeController");
 const router = express.Router();
 
 router.get("/", getHomePage);
 
-router.get("/finn", finn);
+router.post("/createUser", postCreateUser);
 
 module.exports = router; //export default

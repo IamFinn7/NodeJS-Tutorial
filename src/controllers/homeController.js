@@ -9,11 +9,29 @@ const getHomePage = (req, res) => {
   return res.render("home.ejs");
 };
 
-const finn = (req, res) => {
-  res.render("sample.ejs");
+const postCreateUser = (req, res) => {
+  let email = req.body.tempEmail;
+  let name = req.body.tempName;
+  let city = req.body.tempCity;
+
+  console.log(email, name, city);
+
+  connection.query(
+    "INSERT INTO Users (email, name, city) VALUES (?, ?, ?)",
+    [email, name, city],
+    function (err, results) {
+      res.send("Create user succeed!");
+    }
+  );
+
+  //let {email, name, city} = req.body
 };
+
+// const finn = (req, res) => {
+//   res.render("sample.ejs");
+// };
 
 module.exports = {
   getHomePage,
-  finn,
+  postCreateUser,
 };

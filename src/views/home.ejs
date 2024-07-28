@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>HomePage</title>
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
@@ -30,23 +30,25 @@
     </nav>
 
     <div class="form">
-      <fieldset>
-        <legend>Form add new users</legend>
-        <div class="input-group">
-          <label for="email">Email: </label>
-          <input type="text" id="email" />
-        </div>
-        <div class="input-group">
-          <label for="name">Name: </label>
-          <input type="text" id="name" />
-        </div>
-        <div class="input-group">
-          <label for="city">City: </label>
-          <input type="text" id="city" />
-        </div>
-        <button class="save-btn">Save</button>
-        <!-- Nút Save -->
-      </fieldset>
+      <form action="/createUser" method="POST">
+        <fieldset>
+          <legend>Form add new users</legend>
+          <div class="input-group">
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="tempEmail" />
+          </div>
+          <div class="input-group">
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="tempName" />
+          </div>
+          <div class="input-group">
+            <label for="city">City: </label>
+            <input type="text" id="city" name="tempCity" />
+          </div>
+          <button class="save-btn">Save</button>
+          <!-- Nút Save -->
+        </fieldset>
+      </form>
     </div>
   </body>
 </html>

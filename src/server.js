@@ -14,6 +14,10 @@ const app = express();
 const port = process.env.PORT || 3333; //if the port fails, use another one
 const hostname = process.env.HOST_NAME;
 
+//config req.body
+app.use(express.json()); //for json
+app.use(express.urlencoded({ extended: true }));
+
 //config template engine
 configViewEngine(app);
 
