@@ -7,9 +7,7 @@ const connection = require("./config/database");
 
 //----------------------------CONNECT DATABASE----------------------------
 // A simple SELECT query
-connection.query("SELECT * FROM Users u", function (err, results, fields) {
-  console.log(results); // results contains rows returned by server
-});
+
 //-------------------------------------------------------------------------
 
 const app = express();
