@@ -9,22 +9,29 @@ const getHomePage = (req, res) => {
   return res.render("home.ejs");
 };
 
-const postCreateUser = (req, res) => {
+const postCreateUser = async (req, res) => {
   let email = req.body.tempEmail;
   let name = req.body.tempName;
   let city = req.body.tempCity;
 
-  console.log(email, name, city);
+  //viết code dưới dạng thông thường
+  // connection.query(
+  // "INSERT INTO Users (email, name, city) VALUES (?, ?, ?)",
+  // [email, name, city],
+  //   function (err, results) {
+  //     res.send("Create user succeed!");
+  //   }
+  // );
 
-  connection.query(
+  //viết code dưới dạng async-await (mysql2/promise)
+  let [results, fields] = await connection.query(
     "INSERT INTO Users (email, name, city) VALUES (?, ?, ?)",
-    [email, name, city],
-    function (err, results) {
-      res.send("Create user succeed!");
-    }
+    [email, name, city]
   );
+};
 
-  //let {email, name, city} = req.body
+const getCreatePage = (req, res) => {
+  res.render("create.ejs");
 };
 
 // const finn = (req, res) => {
@@ -34,4 +41,5 @@ const postCreateUser = (req, res) => {
 module.exports = {
   getHomePage,
   postCreateUser,
+  getCreatePage,
 };

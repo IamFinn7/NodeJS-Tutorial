@@ -160,60 +160,67 @@ a {
   }
 }
 
-.table-container {
-  width: 80%;
-  margin: 100px auto 30px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
+.form {
+  padding: 10px;
+  margin-top: 80px;
+  max-width: 500px;
+  width: 90%;
+  margin: 80px auto 0;
 }
 
-.table-title {
-  font-size: 19px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #333;
-  position: relative;
+fieldset {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.fancy-table {
-  border-collapse: collapse;
-  width: 100%;
+legend {
   font-size: 14px;
-  text-align: left;
-  background-color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
-.fancy-table thead {
+.input-group {
+  margin-bottom: 12px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+}
+
+.save-btn {
   background-color: #4a98f7;
-  color: #ffffff;
-}
-
-.fancy-table th,
-.fancy-table td {
-  padding: 12px 20px;
-  border: 1px solid #dddddd;
-}
-
-.fancy-table th {
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 12px;
   font-weight: 600;
-  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.fancy-table tbody tr {
-  transition: background-color 0.3s ease;
+.save-btn:hover {
+  background-color: #357ae8;
 }
 
-.fancy-table tbody tr:nth-of-type(even) {
-  background-color: #f9f9f9;
+.save-btn:active {
+  background-color: #3367d6;
+  transform: scale(0.98);
 }
 
-.fancy-table tbody tr:hover {
-  background-color: #e3f2fd;
-}
-
-.fancy-table td {
-  font-weight: 400;
+.save-btn:focus {
+  outline: none;
 }
