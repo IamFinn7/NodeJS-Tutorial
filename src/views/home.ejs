@@ -42,39 +42,21 @@
           </tr>
         </thead>
         <tbody>
+          <% listUsers.forEach(function(lUser) { %>
           <tr>
-            <td>1</td>
-            <td>John Doe</td>
-            <td>john.doe@example.com</td>
-            <td>New York</td>
+            <td><%= lUser.id %></td>
+            <td><%= lUser.name %></td>
+            <td><%= lUser.email %></td>
+            <td><%= lUser.city %></td>
             <td class="action-cell">
               <button class="action-btn edit-btn">Edit</button>
               <button class="action-btn delete-btn">Delete</button>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Jane Smith</td>
-            <td>jane.smith@example.com</td>
-            <td>Los Angeles</td>
-            <td class="action-cell">
-              <button class="action-btn edit-btn">Edit</button>
-              <button class="action-btn delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Emily Johnson</td>
-            <td>emily.johnson@example.com</td>
-            <td>Chicago</td>
-            <td class="action-cell">
-              <button class="action-btn edit-btn">Edit</button>
-              <button class="action-btn delete-btn">Delete</button>
-            </td>
-          </tr>
+          <% }); %>
         </tbody>
       </table>
-      <%= JSON.stringify(listUsers) %>
+      <!-- <%= JSON.stringify(listUsers) %> -->
     </div>
   </body>
 </html>
