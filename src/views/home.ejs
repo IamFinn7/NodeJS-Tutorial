@@ -49,8 +49,10 @@
             <td><%= lUser.email %></td>
             <td><%= lUser.city %></td>
             <td class="action-cell">
-              <button class="action-btn edit-btn">Edit</button>
-              <button class="action-btn delete-btn">Delete</button>
+              <a href="/edit/<%= lUser.id %>" class="action-btn edit-btn"
+                >Edit</a
+              >
+              <a href="/" class="action-btn delete-btn">Delete</a>
             </td>
           </tr>
           <% }); %>
