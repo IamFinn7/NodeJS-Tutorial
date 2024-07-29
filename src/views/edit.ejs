@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
-    <link rel="stylesheet" href="/css/create.css" />
+    <link rel="stylesheet" href="/css/edit.css" />
   </head>
   <body>
     <nav class="nav">
@@ -27,9 +27,19 @@
     </nav>
 
     <div class="form">
-      <form action="/createUser" method="POST">
+      <form action="/updateUser" method="POST">
         <fieldset>
           <legend>Update a user</legend>
+          <div class="input-group" style="display: none">
+            <label for="id">ID: </label>
+            <input
+              type="text"
+              id="id"
+              name="tempId"
+              value="<%= infoUser.id %>"
+              readonly
+            />
+          </div>
           <div class="input-group">
             <label for="name">Name: </label>
             <input
