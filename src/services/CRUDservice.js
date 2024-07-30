@@ -26,11 +26,10 @@ const createUser = async (email, name, city) => {
   // );
 
   //viết code dưới dạng async-await (mysql2/promise)
-  let [results, fields] = await connection.query(
+  await connection.query(
     "INSERT INTO Users (email, name, city) VALUES (?, ?, ?)",
     [email, name, city]
   );
-  return results;
 };
 
 const updateUserByID = async (userId, email, name, city) => {

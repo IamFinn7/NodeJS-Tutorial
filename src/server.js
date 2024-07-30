@@ -1,14 +1,11 @@
 require("dotenv").config();
+
 const express = require("express");
 // const path = require("path");
 const configViewEngine = require("./config/viewEngine");
 const webRoutes = require("./routes/web");
-const connection = require("./config/database");
-
-//----------------------------CONNECT DATABASE----------------------------
-// A simple SELECT query
-
-//-------------------------------------------------------------------------
+const apiRoutes = require("./routes/api");
+// const connection = require("./config/database");
 
 const app = express();
 const port = process.env.PORT || 3333; //if the port fails, use another one
@@ -21,8 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 //config template engine
 configViewEngine(app);
 
-//khai báo route
+//khai báo route web
 app.use("/", webRoutes);
+
+//khai báo route API
+apiRoutes(app);
 
 //test connection
 

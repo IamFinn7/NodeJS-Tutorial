@@ -1,4 +1,3 @@
-const connection = require("../config/database");
 const {
   getAllUsers,
   getInfoUser,
