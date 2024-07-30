@@ -15,6 +15,24 @@ const getInfoUser = async (userId) => {
   return user;
 };
 
+const createUser = async (email, name, city) => {
+  //viết code dưới dạng thông thường
+  // connection.query(
+  // "INSERT INTO Users (email, name, city) VALUES (?, ?, ?)",
+  // [email, name, city],
+  //   function (err, results) {
+  //     res.send("Create user succeed!");
+  //   }
+  // );
+
+  //viết code dưới dạng async-await (mysql2/promise)
+  let [results, fields] = await connection.query(
+    "INSERT INTO Users (email, name, city) VALUES (?, ?, ?)",
+    [email, name, city]
+  );
+  return results;
+};
+
 const updateUserByID = async (userId, email, name, city) => {
   let [results, fields] = await connection.query(
     `UPDATE Users 
@@ -37,6 +55,7 @@ const deleteUserByID = async (userId) => {
 module.exports = {
   getAllUsers,
   getInfoUser,
+  createUser,
   updateUserByID,
   deleteUserByID,
 };

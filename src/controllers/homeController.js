@@ -4,6 +4,7 @@ const {
   getInfoUser,
   updateUserByID,
   deleteUserByID,
+  createUser,
 } = require("../services/CRUDservice");
 
 const getHomePage = async (req, res) => {
@@ -16,20 +17,8 @@ const postCreateUser = async (req, res) => {
   let name = req.body.tempName;
   let city = req.body.tempCity;
 
-  //viết code dưới dạng async-await (mysql2/promise)
-  let [results, fields] = await connection.query(
-    "INSERT INTO Users (email, name, city) VALUES (?, ?, ?)",
-    [email, name, city]
-  );
-
-  //viết code dưới dạng thông thường
-  // connection.query(
-  // "INSERT INTO Users (email, name, city) VALUES (?, ?, ?)",
-  // [email, name, city],
-  //   function (err, results) {
-  //     res.send("Create user succeed!");
-  //   }
-  // );
+  await createUser(email, name, city);
+  res.redirect("/");
 };
 
 const getCreatePage = (req, res) => {
